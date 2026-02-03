@@ -1,0 +1,12 @@
+<? $path="../"; ?>
+<? include ("../controller/config-inc.php"); ?>
+<? $parent_active="product-service/service"; ?>
+<? $page_active="product-service/service/cash-expense"; ?>
+<? include ("../controller/login-sessi.php"); ?>
+<? include ("controller/cash-expense-inc.php"); ?>
+<? include ("../templates/default/top-frame.php"); ?>
+<? include ("../templates/default/separator.php"); ?>
+<? include ("views/cash-expense.php"); ?>
+<? include ("../templates/default/footer.php"); ?>
+<? include ("../templates/default/bottom-frame-noauto.php"); ?>
+<script type="text/javascript" src="files/js.js"></script>

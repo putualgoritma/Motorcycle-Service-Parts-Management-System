@@ -1,0 +1,74 @@
+<?
+if (isset($_REQUEST['payreceivable_id'])){
+$payreceivable_id=$_REQUEST['payreceivable_id'];
+}else{
+$payreceivable_id=0;
+}
+$payreceivable_row=$global->db_row_join("payreceivable,staff","payreceivable.*,staff.staff_name,staff.staff_code","payreceivable_id = '".$payreceivable_id."' AND payreceivable.staff_code=staff.staff_code");
+$payreceivable_amount_total=$global->num_format2($payreceivable_row['payreceivable_amount']);
+//cancell
+if(isset($_POST['Submitcancell']))
+{
+Header("location: receivable-staff.php");
+exit;
+}
+
+if(isset($_POST['Submit']))
+{
+//form handling
+$payreceivable_id=$_POST['payreceivable_id'];
+//get staff id
+$staff_code_arr=explode(" - ",$_POST['staff_code']);
+$staff_code=$global->payreceivable->db_fldrow("staff","staff_code","staff_code='".$staff_code_arr[0]."'");
+if($staff_code!=""){
+$staff_code=$staff_code;
+$payreceivable_accountdebit=$_POST['payreceivable_accountdebit'];
+$payreceivable_description=$_POST['payreceivable_description'];
+$payreceivable_code=$_POST['payreceivable_code'];
+$payreceivable_amount=$_POST['payreceivable_amount_total_hidden'];
+$payreceivable_tenor=$_POST['payreceivable_tenor'];
+//end form handling
+
+//date validate
+$valid_date=$global->valid_date($_POST['date_register']);
+if(!$valid_date['is_valid']){
+	$global->error_message($msgform_lang['date_invalid']);
+	}
+	//loop list
+	if(isset($_POST['payreceivable_accountcredit_hidden'])){
+	$payreceivable_amount_hidden=$_POST['payreceivable_amount_hidden'];
+	$set_rekening=array($payreceivable_accountdebit,"D",$payreceivable_amount);
+	foreach($_POST['payreceivable_accountcredit_hidden'] as $key => $payreceivable_accountcredit_list ) {
+		$taxonomi_code_arr=explode(" - ",$payreceivable_accountcredit_list);
+		$taxonomi_id=$global->payreceivable->db_fldrow("taxonomi","taxonomi_id","taxonomi_code='".$taxonomi_code_arr[0]."'");
+		if($taxonomi_id>0){
+		$payreceivable_amount_list=$payreceivable_amount_hidden[$key];
+		array_push($set_rekening,$taxonomi_id,"K",$payreceivable_amount_list);
+		}}
+	}
+	//end loop
+	//print_r($set_rekening);
+
+	//insert payreceivable
+	$create_arr = array(
+	'staff_code'=>	$staff_code,
+	'payreceivable_register'=>	$valid_date['date_register'],
+	'payreceivable_registernum'=>	$valid_date['date_registernum'],
+	'payreceivable_code'=>	$payreceivable_code,
+	'payreceivable_description'=>	$payreceivable_description,
+	'payreceivable_amount'=>	$payreceivable_amount,
+	'payreceivable_uneditable'=>	0,
+	'payreceivable_accountdebit'=>	$payreceivable_accountdebit,
+	'payreceivable_type'=>	1,
+	'payreceivable_status'=>	0,
+	'payreceivable_tenor'=>	$payreceivable_tenor,
+	);
+	//create receivable payment
+	if(!$global->payreceivable->update_receivable($create_arr,$payreceivable_id,$set_rekening)){
+		$global->payreceivable->error_message($global->payreceivable->err_msg);
+		}}
+	//redirect
+	Header("location: ../confirm.php?redirect=payreceivable/receivable-staff.php&confirm=".$form_header_lang['edit_button']);
+	exit;
+}
+?>

@@ -1,0 +1,43 @@
+<?
+$global->tbldata_exist("salary_slip","*","staff_code='".$_REQUEST['staff_code']."' AND salary_slip_month='".$_REQUEST['salary_slip_month']."'",$salary_slip_row);
+$staff_name=$global->db_fldrow("staff","staff_name","staff_code='".$_REQUEST['staff_code']."'");
+$salary_slip_id=$salary_slip_row['salary_slip_id'];
+$salary_slip_monthnum=$global->month_strtonum($_REQUEST['salary_slip_month']);
+$salary_slip_monthstrip=$global->month_strtostrip($_REQUEST['salary_slip_month']);
+$salary_slip_code_generation=$salary_slip_row['salary_slip_code'];
+$salary_slip_date=date('d/m/Y',strtotime($salary_slip_row['salary_slip_date']));
+$staff_row=$global->db_row("staff","*","staff_code='".$_REQUEST['staff_code']."'");
+$salary_slip_basic=$salary_slip_row['salary_slip_basic'];
+$salary_slip_position=$salary_slip_row['salary_slip_position'];
+$salary_slip_insurance=$salary_slip_row['salary_slip_insurance'];
+$staff_pit_status=$global->db_fldrow("staff","staff_pit_status","staff_code='".$_REQUEST['staff_code']."'");
+if($staff_pit_status=="pit"){
+	$get_insentif_row=$global->salary->get_insentif($_REQUEST['staff_code'],$salary_slip_monthnum);
+	}else{
+	$get_insentif_row=$global->salary->get_insentif_nonpit($_REQUEST['staff_code'],$salary_slip_monthnum);
+	}
+$get_efective_work=$global->salary->get_efective_work($salary_slip_monthnum);
+$num_work=$get_insentif_row['num_work'];
+$salary_slip_transport=$salary_slip_row['salary_slip_transport'];
+$salary_slip_food=$salary_slip_row['salary_slip_food'];
+$salary_slip_insentif_daily=$salary_slip_row['salary_slip_insentif_daily'];
+$salary_slip_commission_part_service=$salary_slip_row['salary_slip_commission_part_service'];
+$salary_slip_insentif_unit_entry=$salary_slip_row['salary_slip_insentif_unit_entry'];
+$salary_slip_insentif_product=$salary_slip_row['salary_slip_insentif_product'];
+$salary_slip_insentif_service=$salary_slip_row['salary_slip_insentif_service'];
+$salary_slip_insentif_bonus=$salary_slip_row['salary_slip_insentif_bonus'];
+$salary_slip_insentif_no_alfa=$salary_slip_row['salary_slip_insentif_no_alfa'];
+$salary_slip_fee_picket=$salary_slip_row['salary_slip_fee_picket'];
+$salary_slip_cut_late=$salary_slip_row['salary_slip_cut_late'];
+$salary_slip_cut_alfa=$salary_slip_row['salary_slip_cut_alfa'];
+$salary_slip_cut_cashbon=$salary_slip_row['salary_slip_cut_cashbon'];
+$salary_slip_cut_payable=$salary_slip_row['salary_slip_cut_payable'];
+$salary_slip_cut_insurance=$salary_slip_row['salary_slip_cut_insurance'];
+$salary_slip_cut_other1=$salary_slip_row['salary_slip_cut_other1'];
+$salary_slip_cut_other2=$salary_slip_row['salary_slip_cut_other2'];
+$income_amount=$salary_slip_basic+$salary_slip_position+$salary_slip_transport+$salary_slip_food+$salary_slip_insurance+$salary_slip_insentif_daily+$salary_slip_commission_part_service+$salary_slip_insentif_unit_entry+$salary_slip_insentif_product+$salary_slip_insentif_service+$salary_slip_insentif_bonus+$salary_slip_insentif_no_alfa+$salary_slip_fee_picket;
+$cut_amount=$salary_slip_cut_late+$salary_slip_cut_alfa+$salary_slip_cut_cashbon+$salary_slip_cut_payable+$salary_slip_cut_insurance+$salary_slip_cut_other1+$salary_slip_cut_other2;
+$salary_amount=$income_amount-$cut_amount;
+$salary_slip_commission_part_service=number_format($salary_slip_row['salary_slip_commission_part_service'], 2,".","");
+$salary_slip_cut_payable=number_format($salary_slip_row['salary_slip_cut_payable'], 2,".","");
+?>

@@ -1,0 +1,123 @@
+
+    /* ----------->>> GridView <<<----------*/
+        .gridView
+        {
+            width: 100%;
+            clear: both;
+            margin: 10px 0;
+            border: medium none !important;
+            border-collapse: collapse;
+        }
+        .gridView tr td
+        {
+            vertical-align: top;
+			border: 1px solid #ddd;
+			padding-top: 8px;
+			padding-right: 0px;
+			padding-bottom: 8px;
+			padding-left: 0px;
+        }
+        .gridView thead tr, .footer
+        {
+            font: bold 14px Arial;
+            vertical-align: middle;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        /* --->>> HeaderStyle (cabeçalho) <<<---*/
+        .gridView thead tr
+        {
+            color: #333;
+            background: #fff bottom repeat-x;
+            vertical-align: middle;
+            height: 25px;
+			border-top: 1px solid #DDD;
+        }
+        .gridView thead tr th
+        {
+            border-top: 1px solid #E2E6E6;
+            border-bottom: 3px solid #E5E5E5;
+            vertical-align: middle;
+			border: 1px solid #ddd;
+			padding-top: 8px;
+			padding-right: 0px;
+			padding-bottom: 8px;
+			padding-left: 0px;
+			text-align: left;
+        }
+        .gridView thead tr a
+        {
+            font: bold 14px Arial, Verdana;
+            color: #333;
+            padding: 0 0 0 10px;
+            text-decoration: none;
+            vertical-align: middle;
+        }
+        .gridView thead tr a:hover
+        {
+            color: #333;
+        }
+        
+       
+        
+        
+        /* ------------>>> Grid <<<--------------*/
+        .grid, .gridAlternada, .gridDestacada
+        {
+            font: 11px Arial,Verdana;
+            text-align: left;
+            text-align: center;
+            vertical-align: middle;
+        }
+        .grid:hover, .gridAlternada:hover, .gridDestacada:hover
+        {
+            color: #000;
+            background: #D4E5F6 url(../images/bg-dia.png) 0 0 repeat-x;
+        }
+        
+        .grid
+        {
+            background-color: #fff;
+        }
+        /*RowStyle*/
+        .gridAlternada
+        {
+            background-color: #eee;
+        }
+        /*AlternatingRowStyle*/
+        .gridDestacada
+        {
+            background-color: #FFE082;
+            color: #333;
+        }
+        /*SelectedRowStyle / EditRowStyle*/
+        
+        
+        /* -------->>> Link Grid's <<<-----------*/
+        .grid a, .gridAlternada a, .gridDestacada a
+        {
+            color: #384249;
+            text-decoration: none;
+        }
+        .grid a:hover, .gridAlternada a:hover, .gridDestacada a:hover
+        {
+            color: #000;
+            text-decoration: underline;
+        }
+		#table1 > thead > tr > td{
+			padding-top: 8px;
+			padding-right: 0px;
+			padding-bottom: 8px;
+			padding-left: 0px;
+		}
+		.gridView.scrolled thead tr th{
+			text-align: center;
+			padding-top: 8px;
+			padding-right: 0px;
+			padding-bottom: 8px;
+			padding-left: 0px;
+		}
+			
+
+   

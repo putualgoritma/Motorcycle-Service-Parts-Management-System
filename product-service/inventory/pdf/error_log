@@ -1,0 +1,12 @@
+[15-Apr-2019 08:04:01 Asia/Makassar] PHP Fatal error:  Uncaught Mpdf\MpdfException: The HTML code size is larger than pcre.backtrack_limit 1000000. You should use WriteHTML() with smaller string lengths. in /home/cmmdlgco/public_html/admin/vendor/mpdf/mpdf/src/Mpdf.php:26560
+Stack trace:
+#0 /home/cmmdlgco/public_html/admin/vendor/mpdf/mpdf/src/Mpdf.php(13145): Mpdf\Mpdf->AdjustHTML('\n<table width="...', 8)
+#1 /home/cmmdlgco/public_html/admin/product-service/inventory/pdf/stock-details-pdf.php(196): Mpdf\Mpdf->WriteHTML('\n<table width="...')
+#2 {main}
+  thrown in /home/cmmdlgco/public_html/admin/vendor/mpdf/mpdf/src/Mpdf.php on line 26560
+[15-Apr-2019 08:04:26 Asia/Makassar] PHP Fatal error:  Uncaught Mpdf\MpdfException: The HTML code size is larger than pcre.backtrack_limit 1000000. You should use WriteHTML() with smaller string lengths. in /home/cmmdlgco/public_html/admin/vendor/mpdf/mpdf/src/Mpdf.php:26560
+Stack trace:
+#0 /home/cmmdlgco/public_html/admin/vendor/mpdf/mpdf/src/Mpdf.php(13145): Mpdf\Mpdf->AdjustHTML('\n<table width="...', 8)
+#1 /home/cmmdlgco/public_html/admin/product-service/inventory/pdf/stock-details-pdf.php(196): Mpdf\Mpdf->WriteHTML('\n<table width="...')
+#2 {main}
+  thrown in /home/cmmdlgco/public_html/admin/vendor/mpdf/mpdf/src/Mpdf.php on line 26560

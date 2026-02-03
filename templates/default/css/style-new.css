@@ -1,0 +1,237 @@
+/* fixed div */
+.total{
+	background-color: #000;
+	padding: 15px;
+	color: #FFF;
+	width: 100%;
+	z-index: 1000;
+	font-size: 21px;
+	color: #67F72D;
+	overflow:hidden;
+}
+
+/* readonly */
+.textbox[readonly] {
+    cursor: not-allowed;
+    background-color: #eee;
+}
+
+/* modal */
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: top;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: top;
+}
+
+@charset "utf-8";
+
+/* CSS Document */
+
+
+
+.right-side {
+
+    margin-top: 51px;
+
+}
+
+body > .header {
+
+    position: fixed;
+
+}
+
+.left-side {
+
+    position: fixed;
+
+	height: 100%;
+
+}
+
+.right-side.strech .content-header {
+
+    width: 100%;
+
+}
+
+#myloading {
+position: fixed;
+width: 100%;
+height: 100vh;
+background: rgba(0, 0, 0, 0.5) url('../img/ajax-loader1.gif') no-repeat center center;
+z-index: 9999;
+}
+
+.table {
+    border-color:#ddd !important;
+}
+.table th, .table td {
+    border-color:#ddd !important;
+}
+
+/* Master Data */
+
+#inventory .title{
+	color: #1F5C9F;
+	font-weight: bold;
+}
+#inventory a.title:hover,
+#inventory a.title:focus{
+	text-decoration: none;
+}
+#inventory ul{
+	padding: 0px;
+}
+#inventory ul li{
+	list-style: none;
+	padding: 10px 0px;
+}
+
+#inventory ul li a{
+	color: #333333;
+	text-decoration: none;
+}
+
+#inventory ul li a:hover,
+#inventory ul li a:focus{
+	color: #1F5C9F;
+}
+
+#inventory ul li i{
+	font-size: 36px;
+	padding-right: 10px;
+}
+#inventory .col-xs-6{
+	min-height: 500px;
+}
+
+
+/* Service */
+#service ul{
+	padding: 0px;
+}
+#service ul li{
+	list-style: none;
+	padding: 10px 10px;
+	float: left;
+	text-align: center;
+}
+#service ul li i{
+	font-size: 36px;
+	padding-right: 10px;
+	clear: both;
+	display: block;
+	padding-bottom: 10px;
+}
+#service .fa-arrow-right,
+#service .fa-arrow-down{
+	font-size: 21px;
+}
+
+#service .list{
+	min-width: 140px;
+}
+#service .list2{
+	min-width: 184px;
+}
+#service .list3{
+	min-width: 159px;
+}
+#service .space{
+	padding-left: 60px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+/* Accordion*/
+#accordion ul{
+	padding: 0px;
+}
+#accordion ul li{
+	list-style: none;
+	padding: 10px 10px;
+	float: none;
+	text-align: left;
+}
+#accordion ul li a{
+	color: #06C;
+	text-decoration: none;
+}
+#accordion ul li a:hover,
+#accordion ul li a:focus{
+	text-decoration: underline;
+}
+#accordion ul li i{
+	font-size: 14px;
+	padding-right: 0px;
+	clear: none;
+	display: inline-block;
+}
+
+/* End Master Data */
+
+@media screen and (max-width: 992px) {
+
+.right-side > .content-header {
+
+    width: 100%;
+
+}
+
+.row-offcanvas-left .sidebar-offcanvas {
+
+    left: 0px;
+
+    position: fixed;
+
+    top: 50px;
+
+}
+
+.row-offcanvas-left .sidebar-offcanvas{
+
+	display: none;
+
+}
+
+.row-offcanvas-left.active .sidebar-offcanvas{
+
+	display: block;
+
+}
+
+}
+
+
+
+@media screen and (max-width: 560px) {
+
+.right-side {
+
+    margin-top: 100px;
+
+}
+
+}
+
+.scroll{
+    width: 100%;
+    height: 85%;
+    top:0;
+    left:0;
+    overflow:auto;
+}

@@ -1,0 +1,71 @@
+            <!-- Right side column. Contains the navbar and content of the page -->
+            <aside class="right-side">                
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1><? echo $global->product_order->product_order_lang['form_header_product_order_lang']['warehouse_new']; ?></h1>
+                    <? if(!isset($popup)){?>
+                    <ol class="breadcrumb">
+                        <li><a href="<? echo $path; ?>index.php"><i class="fa fa-home"></i> Home</a></li>
+                        <li><a href="<? echo $path; ?>index-sub.php?module_code=<? echo $parent_active; ?>"> Master Data</a></li>
+                        <li><a href="warehouse.php"><? echo $global->product_order->product_order_lang['form_header_product_order_lang']['warehouse']; ?></a></li>
+                        <li class="active"><? echo $global->product_order->product_order_lang['form_header_product_order_lang']['warehouse_new']; ?></li>
+                    </ol>
+                    <? }?>
+                </section>
+            <!-- Main content -->
+                <section class="content">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="box box-danger">
+                            <div class="box-body table-responsive">
+            <form action="<? echo $link_new; ?>" method="post" enctype="multipart/form-data" name="form" id="form">
+<div>
+    <p><strong><u><? echo $global->product_order->product_order_lang['form_header_product_order_lang']['warehouse_new']; ?>: </u></strong></p>
+    <div>&nbsp;</div>                           
+     </div><!-- /.box-header -->
+ 
+<div class="row clearfix">
+<div class="col-md-2"><strong><? echo $global->product_order->product_order_lang['form_label_product_order_lang']['warehouse_code']; ?>:</strong></div>
+<div class="col-md-10"><input name="warehouse_code" type="text" class="textbox firstin" id="warehouse_code" required="required"></div>
+</div>
+<div class="row clearfix">                                
+  <div class="col-md-2"><strong><? echo $global->product_order->product_order_lang['form_label_product_order_lang']['warehouse_name']; ?>:</strong></div>
+<div class="col-md-10"><input name="warehouse_name" type="text" class="textbox" id="warehouse_name" required="required"></div>
+</div>
+<div class="row clearfix">                                
+<div class="col-md-2"><strong><? echo $global->product_order->product_order_lang['form_label_product_order_lang']['warehouse_type']; ?>:</strong></div>
+<div class="col-md-10"><select name="warehouse_type" class="textbox" id="warehouse_type">
+              <? 
+			  for($list_inc=0;$list_inc<count($form_selectlist_lang['warehouse_type']);$list_inc++){
+			  $list_pass=true;
+			  if($company['company_type']=="main" && $form_selectlist_lang['warehouse_type'][$list_inc][0]=="main"){
+			  	 $list_pass=false;
+				}
+			  if($company['company_type']=="branch" && $form_selectlist_lang['warehouse_type'][$list_inc][0]=="branch"){
+			  	 $list_pass=false;
+				}
+			  if($list_pass){
+			  ?>
+              <option<? if($list_inc==0){?> selected="selected"<? }?> value="<? echo $form_selectlist_lang['warehouse_type'][$list_inc][0]; ?>"><? echo $form_selectlist_lang['warehouse_type'][$list_inc][1]; ?></option>
+              <? }}?>
+            </select></div>
+</div>
+<div class="row clearfix">                                
+  <div class="col-md-2"><strong><? echo $global->product_order->product_order_lang['form_label_product_order_lang']['warehouse_description']; ?>:</strong></div>
+<div class="col-md-10">
+  <textarea name="warehouse_description" cols="40" rows="5" class="textbox lastinnew" id="warehouse_description" required="required"></textarea>
+</div>
+</div>
+<div class="clear">&nbsp;</div>
+<div class="row clearfix">
+<div class="col-md-2">&nbsp;</div>
+<div class="col-md-10"><button name="Submit" class="btn btn-primary" id="Submitnew"><? echo $form_header_lang['add_new_button']; ?></button></div>
+</div> 
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+</aside><!-- /.right-side -->
+

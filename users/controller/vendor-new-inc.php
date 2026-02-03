@@ -1,0 +1,58 @@
+<?
+//cek popup
+if(isset($popup)){
+$link_list="vendor-popup.php";
+$link_new="vendor-popup-new.php";
+}else{
+$link_list="vendor.php";
+$link_new="vendor-new.php";
+}
+//submit
+$users_code_generation=$global->users->generator_vendor();
+if(isset($_REQUEST['Submitcancell']))
+{
+Header("location: ".$link_list."");
+exit;
+}
+if(isset($_POST['Submit']) && isset($_POST['users_code']))
+{
+//form handling
+$users_code=mysqli_real_escape_string($global->db_con,$_POST['users_code']);
+$users_status=$_POST['users_status'];
+$users_name=mysqli_real_escape_string($global->db_con,$_POST['users_name']);
+$users_address=mysqli_real_escape_string($global->db_con,$_POST['users_address']);
+$users_phone=$_POST['users_phone'];
+//end form handling
+//cari tanggal
+$dt=date("YmdHis");
+$tanggal=date("d");
+$month=date("m");
+$year=date("Y");
+$users_register=date("d/m/Y");
+$tbt=$year.$month.$tanggal;
+
+//regenerate
+$users_code=$global->users->generator_vendor();
+
+//insert items
+$insert_arr = array(
+'users_register'=>	$users_register,
+'users_registernum'=>	$tbt,
+'users_code'=>	$users_code,
+'users_type'=>	'vendor',
+'users_status'=>	$users_status,
+'users_name'=>	$users_name,
+'users_address'=>	$users_address,
+'users_phone'=>	$users_phone,
+);
+//create asset fixed
+if(!$global->users->create_users($insert_arr)){
+	$global->users->error_message($global->users->err_msg);
+	}
+//redirect
+//Header("location: supplier.php");
+Header("location: ".$link_list."?confirm=".$form_header_lang['add_new_button']);
+exit;
+//exit;
+}
+?>

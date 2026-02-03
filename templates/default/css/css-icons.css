@@ -1,0 +1,184 @@
+/* Master Data */
+.content {
+    padding: 20px 25px;
+}
+#master-data .title{
+	color: #1F5C9F;
+	font-weight: bold;
+	text-decoration: underline;
+}
+#master-data a.title:hover,
+#master-data a.title:focus{
+	text-decoration: none;
+}
+#master-data ul{
+	padding: 0px;
+}
+#master-data ul li{
+	list-style: none;
+	padding: 10px 0px;
+}
+
+#master-data ul li a{
+	color: #333333;
+	text-decoration: none;
+}
+
+#master-data ul li a:hover,
+#master-data ul li a:focus{
+	color: #F00;
+}
+
+#master-data ul li i{
+	font-size: 36px;
+	padding-right: 10px;
+}
+#master-data ul li img{
+	margin-right: 10px;
+	min-width: 43px;
+}
+#master-data .col-xs-6{
+	min-height: 500px;
+}
+
+
+/* Service */
+#service ul{
+	padding: 0px;
+}
+#service ul li{
+	list-style: none;
+	float: left;
+	text-align: center;
+}
+#service ul li i{
+	font-size: 36px;
+	clear: both;
+	display: block;
+	padding-bottom: 10px;
+}
+#service ul li img{
+	clear: both;
+	display: block;
+	padding-bottom: 10px;
+	margin-left: 15px;
+}
+#service .fa-arrow-right,
+#service .fa-arrow-down{
+	font-size: 21px;
+}
+#service ul li a {
+    color: #333333;
+    text-decoration: none;
+}
+#service ul li a:hover,
+#service ul li a:focus{
+	color: #F00;
+}
+
+#service .list{
+	min-width: 150px;
+}
+#service .space{
+	padding-left: 60px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+#service .arrow-right{
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 20px;
+	padding-top: 50px;
+}
+#service .arrow-down{
+	margin-top: 10px;
+}
+#service .service-col{
+	display: inline-block;
+}
+/* pengaturan */
+#pengaturan ul li{
+	list-style: none;
+	float: left;
+	text-align: left;
+}
+#pengaturan ul li img{
+	clear: both;
+	display: block;
+	padding-bottom: 10px;
+	margin-left: 0px;
+}
+#pengaturan .list{
+	min-width: 150px;
+}
+/* stock */
+#stock ul{
+	padding: 0px;
+}
+#stock ul li{
+	list-style: none;
+	float: left;
+	text-align: center;
+}
+#stock ul li i{
+	font-size: 36px;
+	clear: both;
+	padding-bottom: 10px;
+	vertical-align: middle;
+	margin-right: 20px;
+	float: left;
+}
+#stock .fa-arrow-right,
+#stock .fa-arrow-down{
+	font-size: 21px;
+}
+
+#stock .list{
+	min-width: 250px;
+	margin-bottom: 20px;
+}
+#stock ul li img{
+	margin-right: 20px;
+}
+#stock .space{
+	padding-left: 60px;
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+#stock span{
+	float: left;
+	text-align: left;
+}
+#stock p{
+	margin: 0 0 0px;
+	padding: 0;
+	line-height: 14px;
+}
+
+#accordion ul{
+	padding: 0px;
+}
+#accordion ul li{
+	list-style: none;
+	padding: 10px 10px;
+	float: none;
+	text-align: left;
+}
+#accordion ul li a{
+	color: #06C;
+	text-decoration: none;
+}
+#accordion ul li a:hover,
+#accordion ul li a:focus{
+	text-decoration: underline;
+}
+#accordion ul li i{
+	font-size: 14px;
+	padding-right: 0px;
+	clear: none;
+	display: inline-block;
+	padding-bottom: 0px;
+	vertical-align: middle;
+	margin-right: 0px;
+	float: none;
+}

@@ -1,0 +1,55 @@
+/* Style Tabs */
+#profile-tabs .nav-tab {
+    border-bottom: 0px solid #DDD;
+	padding-bottom: 20px;
+}
+#profile-tabs .nav-tab > li {
+    float: left;
+    margin-bottom: -1px;
+}
+#profile-tabs .nav-tabs {
+    border-bottom: 1px solid #DDD;
+}
+#profile-tabs .nav-tab > li > a {
+	border-radius: 0px;
+    background-color: #FCFCFC;
+    color: #333;
+    border-color: #E4E4E4 #E4E4E4 #DDD;
+    padding: 14px 15px;
+    text-align: center;
+	margin-right: -1px;
+	border-bottom: 1px solid #DDD;
+	border-top: none;
+	border-left: none;
+    border-right: none;
+	margin-top: 1px;
+}
+#profile-tabs .nav-tab > li > a:hover{
+	background-color: #FFF;
+    border-width: 1px;
+    border-color: #E66A55 #DDD #DDD;
+    -moz-border-top-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    border-image: none;
+    border-top: none;
+	border-bottom: 1px solid #E66A55;
+    color: #B4321B;
+	outline: none;
+}
+#profile-tabs .nav-tab > li.active > a,
+#profile-tabs .nav-tab > li.active > a:hover,
+#profile-tabs .nav-tab > li.active > a:focus {
+	background-color: #FFF;
+	-moz-border-top-colors: none;
+	-moz-border-right-colors: none;
+	-moz-border-bottom-colors: none;
+	-moz-border-left-colors: none;
+	border-image: none;
+	border-top: none;
+	border-bottom: 1px solid #E66A55;
+	color: #B4321B;
+	border-radius: 0px;   
+	outline: none; 
+}

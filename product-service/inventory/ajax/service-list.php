@@ -1,0 +1,40 @@
+<? $path="../../../"; ?>
+<? include ($path."controller/config-lite-inc.php"); ?>
+<? //include ($path."controller/login-sessi.php"); ?>
+<?php
+$result=array();
+//default view
+$search_value="";
+$sort_value="service_id DESC";
+$pageset_value=0;
+$per_page_value=10;
+
+//if search
+if (isset($_REQUEST['search'])){
+$search_value=$_REQUEST['search'];
+}
+//query
+$search_field_arr=array("service_code","service_name");
+$def_arr=array(
+'pageset'=>$pageset_value,
+'per_page'=>$per_page_value,
+'keyword'=>$search_value,
+'sort'=>$sort_value,
+'join_match'=>"",
+'join_id'=>""
+);
+$service_search_list=$global->tbl_search_list("service","*",$def_arr,$search_field_arr,1,$select_num,$qry_str_sort);
+
+$result="";
+for($i=0;$i<count($service_search_list);$i++){
+$str_addon="";
+if($i>0){
+	$str_addon=";";
+	}
+$result.=$str_addon.$service_search_list[$i]['service_id']." - ".$service_search_list[$i]['service_code']." - ".$service_search_list[$i]['service_name']." - ".$service_search_list[$i]['service_sprice'];
+}
+echo $result;
+
+//echo json_encode($result);
+//echo "lol";
+?>
